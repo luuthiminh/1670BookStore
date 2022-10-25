@@ -1,0 +1,58 @@
+﻿@model Book_Store.Models.Order
+
+@*<link rel="stylesheet" href="{/css/order}">
+<div class="container">
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
+        Add List Order
+    </button>
+</div>
+
+<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-controller="Order" asp-action="List" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="id">Book_ID</label>
+                        <input type="text" class="form-control" asp-for="Book_Id" placeholder="Book id">
+                        <small id="text" class="form-text text-muted">Enter book id.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" asp-for="Customer_Name" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="text" class="form-control" asp-for="Quantity" placeholder="Quantity">
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>*@
+
+<form asp-controller="Order" asp-action="Order_Book" method="post">
+    <div class="form-group">
+        <label for="id">Book_ID</label>
+        <input type="text" class="form-control" asp-for="BookId" placeholder="Book id">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" asp-for="Customer" placeholder="Your name">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" asp-for="Quantity" placeholder="Quantity">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
