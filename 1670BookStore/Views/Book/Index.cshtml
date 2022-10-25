@@ -1,0 +1,53 @@
+﻿@model List<Book>
+
+<div class="container">
+    <div class="p-2 pt-md-5 pb-md-3 mx-auto">
+        <h1 class="display-4">Book Management</h1>
+    </div>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="7">Book List</th>
+                <th>
+                    <a class="btn btn-primary" asp-controller="Book" asp-action="Add">Add</a>
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+@*                <th scope="col">Category</th>*@
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.BookId</td>
+                    <td>
+                        <a asp-controller="Book" asp-action="" asp-route-id="@book.Id">
+                            <img src="@book.BookImage" width="150">
+                        </a>
+                    </td>
+                    <td>@book.BookTitle</td>
+                    <td>@book.BookQuantity</td>
+                    <td>@book.BookPrice</td>
+                    <td>
+                       @* <a asp-controller="Category" asp-action="" asp-route-id="@book.Category.Id">@book.Category.CatName</a>*@
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-primary btn-sm" asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">Edit</a>
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-success btn-sm" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
